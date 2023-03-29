@@ -6,8 +6,11 @@
     transform: rotate(360deg);
   }
 }
+@keyframes flash {
+}
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+@import url("hover-min.css");
 
 @font-face {
   font-family: lasenter;
@@ -40,18 +43,19 @@ main {
   align-items: center;
 
   .time {
-    font-size: 60px;
+    font-size: 70px;
     // border: 3px solid white;
     padding: 12px 24px;
     color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
-      0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+    text-shadow: 0 0 5px #181818, 0 0 10px #181818, 0 0 20px #fdfd00,
+      0 0 30px #fdfd00, 0 0 40px #fdfd00, 0 0 55px #fdfd00, 0 0 75px #fdfd00;
+    margin-bottom: 50px;
   }
 
   .quotes {
     position: relative;
     font-size: 60px;
-    width: 840px;
+    width: 800px;
     font-family: lasenter;
     text-shadow: 3px 0 rgb(231, 253, 255), -3px 0 rgb(231, 253, 255),
       0 3px rgb(231, 253, 255), 0 -3px rgb(231, 253, 255),
@@ -62,7 +66,7 @@ main {
     padding: 12px 14px;
     padding-right: 24px;
     background-color: rgb(243, 243, 243, 0.7);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     .quotesAddBtn {
       display: none;
       position: absolute;
@@ -72,7 +76,8 @@ main {
       font-size: 12px;
       width: 120px;
       background-color: #fff;
-      border: 1px solid #fff;
+      border: 1px solid #000000;
+      border-radius: 2px;
     }
     &:hover {
       .quotesAddBtn {
@@ -83,22 +88,43 @@ main {
 
   .newQuotes {
     display: none;
+    .newQuotesInput {
+      width: 300px;
+      height: 24px;
+      font-size: 13px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      padding-left: 10px;
+      background-color: rgb(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+      box-shadow: 4px 4px 10px #4c4c4c;
+    }
+    .newQuotesButton {
+      border-radius: 6px;
+      font-weight: 100;
+    }
   }
 
   .search {
     .searchTitle {
-      display: flex;
       font-size: 32px;
+      display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: rgb(233, 233, 233, 0.7);
+      animation: flash;
+
+      .searchLogo {
+        width: 32px;
+        height: 32px;
+        animation: spin 2s linear infinite;
+      }
     }
-    .searchLogo {
-      width: 32px;
-      height: 32px;
-      margin-right: 16px;
-      animation: spin 2s linear infinite;
-    }
+
     .searchResult {
       display: none;
       border: 1px solid rgb(243, 243, 243, 0.7);
@@ -111,7 +137,108 @@ main {
     }
 
     .searchForm {
-      justify-content: center;
+      // display: flex;
+      .searchInput {
+        width: 500px;
+        height: 32px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233, 0.7);
+        box-shadow: 4px 4px 10px #4c4c4c;
+      }
+      .searchButton {
+        width: 34px;
+        height: 34px;
+        background-color: #fff;
+        border-radius: 6px;
+        border: 1px solid rgb(22, 22, 22, 0.5);
+        box-shadow: 3px 3px 10px #4c4c4c;
+        padding-right: 10px;
+      }
+    }
+  }
+  .nft {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 36px;
+
+    img {
+      width: 172px;
+      height: 172px;
+    }
+
+    .nftHover {
+      position: absolute;
+      display: none;
+      width: 172px;
+      height: 172px;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 10px #65fc00;
+
+      a {
+        // position: relative;
+        border-radius: 4px;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 6px 12px;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: -8px;
+        background-color: #f2f2f2;
+        border-radius: 9999px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &:hover {
+      .nftHover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .nftView {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 36px;
+    display: none;
+    width: 120px;
+    height: 60px;
+
+    background-color: white;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+  }
+
+  .weather {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 40px;
+    margin-bottom: 60px;
+    .weatherIcon {
+      width: 130px;
+    }
+    .cityTemp {
+      font-size: 16px;
+      font-weight: bold;
+      padding-left: 20px;
     }
   }
 }
